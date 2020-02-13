@@ -19,7 +19,7 @@ function go() {
 }
 
 go().then(message => message.toUpperCase())
-    .then(message => alert(message));
+    .then(message => console.log(message));
 
 
 
@@ -63,34 +63,24 @@ get('http://localhost:5500/ajax/data.json')
 
 
 
+// async await
 
+async function getJokes() {
+    const data = await get('https://api.chucknorris.io/jokes/random');
+    const jokes = JSON.parse(data);
+    return jokes.value;
 
-//Ca marche, mais non réutilisable sans tout copier/coller !
+    // throw  new Error('My error');
 
-// xhr.onreadystatechange = () => {
-//     if (xhr.readyState === 4) {
-//         const json = JSON.parse(xhr.responseText);
-//         console.log(json);
+    // const data2 = await get('https://api.chucknorris.io/jokes/rando');
+    // const jokes2 = JSON.parse(data2);
+    // console.log(jokes2.value);
 
-//         if (xhr.status === 200) {
-//             console.log("tout est ok");
+}
+// try {
+//     getJokes().then(joke => console.log(joke));
 
-//             const namesElem = document.querySelector('#names');
-//             json.forEach(object => {
-//                 const txt = document.createTextNode(object.name);
-//                 const li = document.createElement('li');
+// } catch (error) {
+//     console.log('Error' + error);
 
-//                 li.appendChild(txt);
-//                 namesElem.appendChild(li);
-//             });
-//         }
-//         else {
-//             console.log('Error :', xhr.status);
-
-//         }
-
-//     }
-// };
-
-// xhr.open('GET', 'http://localhost:5500/ajax/data.json');
-// xhr.send();
+// }
