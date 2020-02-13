@@ -13,6 +13,14 @@ class AppText extends HTMLElement {
     connectedCallback() {
         this.shadow.innerHTML = `
         <style>
+            :host(.test) {
+                display : block;
+                border : 1px solid seagreen;
+                padding : 10px;
+            }
+            :host-context(.aston) {
+                border-color :red;
+            }
             h1 {
                 color: royalblue;
             }
