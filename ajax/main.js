@@ -10,6 +10,12 @@ function getXMLHttpRequest() {
 
 const xhr = getXMLHttpRequest();
 
-xhr.onreadystatechange = ()=> {
-    
+xhr.onreadystatechange = () => {
+    if (xhr.readyState === 4) {
+        console.log(xhr.responseText);
+
+    }
 };
+
+xhr.open('GET', 'http://localhost:5500/ajax/data.json');
+xhr.send();
