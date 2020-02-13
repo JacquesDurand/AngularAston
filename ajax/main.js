@@ -10,21 +10,35 @@ function getXMLHttpRequest() {
 
 const xhr = getXMLHttpRequest();
 
+function go() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('Boom');
+        }, 5000);
+    });
+}
+
+go().then(message => message.toUpperCase())
+    .then(message => alert(message));
+
+
+
+
 function get(url) {
     return new Promise((resolve, reject) => {
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
-                const json = JSON.parse(xhr.responseText);
-                console.log(json);
-
                 if (xhr.status === 200) {
-                    resolve(json);
-                }
-                else {
-                    reject(xhr);
+                    resolve(xhr.responseText);
                 }
 
+                else {
+                    reject({
+                        status: xhr.status
+                    });
+                }
             }
+
         };
 
         xhr.open('GET', url, true);
@@ -34,25 +48,22 @@ function get(url) {
 }
 
 get('http://localhost:5500/ajax/data.json')
-    .then(json => {
+    .then(data => JSON.parse(data))
+    .then(data => {
         const namesElem = document.querySelector('#names');
-        json.forEach(object => {
+        data.forEach(object => {
             const txt = document.createTextNode(object.name);
             const li = document.createElement('li');
 
             li.appendChild(txt);
             namesElem.appendChild(li);
         });
-    },
-        err => {
-            console.log(err);
+    })
+    .catch(err => console.log(err));
 
-        });
 
-// get('http://localhost:5500/ajax/data.json')
-//     .then(json => {
-//         console.log(json);
-//     })
+
+
 
 //Ca marche, mais non réutilisable sans tout copier/coller !
 
