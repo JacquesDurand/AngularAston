@@ -21,4 +21,10 @@ export class HelloComponent implements OnInit {
     return this.name;
   }
 
+  onSave(event: Event): void {
+    console.log(event);
+    
+    alert(this.name)
+  }
+
 }

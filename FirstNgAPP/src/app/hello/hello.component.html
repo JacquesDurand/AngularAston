@@ -6,5 +6,5 @@
     type="text" [(ngModel)]="name">
     {{getName()}}
     <br>
-    <button [disabled]="!name.length" (click)="onSave()">Press me</button>
+    <button [disabled]="!name.length" (click)="onSave($event)">Press me</button>
 </div>

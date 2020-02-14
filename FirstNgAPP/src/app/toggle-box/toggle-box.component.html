@@ -1,0 +1,6 @@
+<div>
+    <h2 class="toggle-box-title" (click)="state=!state">{{title}}</h2>
+    <div class="toggle-box-body" [hidden]="state">
+        <ng-content></ng-content>
+    </div>
+</div>
