@@ -12,6 +12,8 @@ export class HelloComponent implements OnInit {
 
   name = '';
   data = { ville: 'Lille' };
+  max_length: number = 10;
+
   constructor() { }
 
   ngOnInit(): void {
