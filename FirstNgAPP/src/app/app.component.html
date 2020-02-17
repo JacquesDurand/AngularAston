@@ -1,10 +1,13 @@
-
 <h1>{{title}}</h1>
 
 
- <app-hello></app-hello>
+<app-hello (valueEvent)="addToList($event)"></app-hello>
 
-<app-toggle-box title="Mon titre" toggle="">
+<ul>
+    <li *ngFor="let task of tasks">{{task}}</li>
+</ul>
+
+<!-- <app-toggle-box title="Mon titre" toggle="">
     <p>Ici mon nouveau contenu</p>
 </app-toggle-box>
 
@@ -16,10 +19,10 @@
     <h4>
         <p>Encore un autre contenu</p>
     </h4>
-</app-toggle-box>
+</app-toggle-box> -->
 
 
 
 <!-- <div app-hello=""></div> On peut utiliser le selector comme attribut-->
 
-<!-- <div class="app-hello"></div> On peut utiliser le selector comme classe -->  
+<!-- <div class="app-hello"></div> On peut utiliser le selector comme classe -->

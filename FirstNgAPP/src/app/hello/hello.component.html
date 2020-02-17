@@ -1,17 +1,12 @@
-<h2>Hello world</h2>
 <div>
     <input #inputName style="border: 2px solid seagreen"
         [style.border-color]="name.length >= max_length ? 'red' : 'blue'" type="text" [(ngModel)]="name"
-        [maxlength]="max_length">
+        [maxlength]="max_length"
+        (keyup)="onSave($event)">
 
-    {{getName()}}
     <br>
-    {{inputName.value.length +'/'}}{{max_length}}
-    <br>
-    <div #hashTest>Test de hash</div>
-    <br>
-    {{hashTest.textContent}}
-    <br>
-    <button [disabled]="!name.length" (click)="onSave($event)">Press me</button>
+    {{inputName.value.length +'/'}}{{inputName.maxLength}}
+
+
 
 </div>

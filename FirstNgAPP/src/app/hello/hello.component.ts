@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 /**
  * selector : '.app-hello' pour selectionner sur une classe
  * selector : '[app-hello]' pour selectionner sur un attribut
@@ -11,22 +11,25 @@ import { Component, OnInit } from '@angular/core';
 export class HelloComponent implements OnInit {
 
   name = '';
-  data = { ville: 'Lille' };
   max_length: number = 10;
+  @Output() valueEvent = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getName(): string {
-    return this.name;
+  onSave(event: Event): void {
+    const evt = event as KeyboardEvent;
+    if (evt.keyCode === 13) {
+      const input = event.target as HTMLInputElement;
+      if (input.value) {
+        this.valueEvent.emit(input.value);
+        input.value = '';
+      }
+    }
   }
 
-  onSave(event: Event): void {
-    console.log(event);
-    
-    alert(this.name)
-  }
+
 
 }

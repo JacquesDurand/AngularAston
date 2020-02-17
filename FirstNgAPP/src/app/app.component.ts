@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Michel';
+  title: number = 0;
+
+  tasks: number[] = [];
+
+  addToList(event: number): void {
+    this.tasks.push(event);
+  }
 
 }
