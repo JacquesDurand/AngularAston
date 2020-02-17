@@ -1,0 +1,15 @@
+:host {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input [type="range"] {
+    flex-grow: 1;
+    margin: 8px;
+}
+
+.input-size {
+    width: 3em;
+}

@@ -1,0 +1,6 @@
+
+<h2 style.color="{{colorString}}">Color</h2>
+<app-slide max="255" class="slide slide-{{i}}" *ngFor="let color of colors; let i = index" (valueEvent)="printValue($event, i)"></app-slide>
+
+<br>
+<div class="result" style.background-color="{{colorString}}"></div>
