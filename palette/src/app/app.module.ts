@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SlideComponent } from './slide/slide.component';
 import { ColorBoxComponent } from './color-box/color-box.component';
+import { ButtonDirective } from './directives/button.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlideComponent,
-    ColorBoxComponent
+    ColorBoxComponent,
+    ButtonDirective
   ],
   imports: [
     BrowserModule,
