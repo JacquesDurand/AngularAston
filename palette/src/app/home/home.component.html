@@ -1,0 +1,4 @@
+
+<h1 [style.color]="colorString">My color App</h1>
+
+<app-color-box [style.borderColor]="colorString" (colorEmit)="retrieveColor($event)"></app-color-box>

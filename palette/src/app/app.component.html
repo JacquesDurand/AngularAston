@@ -1,15 +1,16 @@
-<h1 [style.color]="colorString">My super color app</h1>
+<app-navbar></app-navbar>
 
-<div class="container">
-  <app-color-box (colorEmit)="retrieveColor($event)"></app-color-box>
-  <app-color-box (colorEmit)="retrieveColor($event)"></app-color-box>
-  <app-color-box (colorEmit)="retrieveColor($event)"></app-color-box>
-</div>
-<br>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>
 
-<!-- <input #focusInput type="text">
-<button appButton>Click me</button>
-<br>
-<a appButton>A link</a> -->
 
-<app-two-way-data-binding></app-two-way-data-binding>
+
+
+
+
+
+
+
+
+

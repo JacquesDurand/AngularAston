@@ -8,7 +8,6 @@ import { ColorBoxComponent } from './color-box/color-box.component';
 })
 export class AppComponent implements AfterViewInit {
   title = 'palette';
-  colorString: string = '';
 
   @ViewChild('focusInput') focusInputRef: ElementRef;
   @ViewChildren(ColorBoxComponent) colorBoxRef: QueryList<ColorBoxComponent>;
@@ -19,7 +18,5 @@ export class AppComponent implements AfterViewInit {
     console.log(this.colorBoxRef);
   }
 
-  retrieveColor(event: string): void {
-    this.colorString = event;
-  }
+
 }

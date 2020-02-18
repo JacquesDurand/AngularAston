@@ -9,6 +9,11 @@ import { SlideComponent } from './slide/slide.component';
 import { ColorBoxComponent } from './color-box/color-box.component';
 import { ButtonDirective } from './directives/button.directive';
 import { TwoWayDataBindingComponent } from './two-way-data-binding/two-way-data-binding.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { DemoComponent } from './demo/demo.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +22,11 @@ import { TwoWayDataBindingComponent } from './two-way-data-binding/two-way-data-
     ColorBoxComponent,
     ButtonDirective,
     TwoWayDataBindingComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    NavbarComponent,
+    DemoComponent,
     
   ],
   imports: [

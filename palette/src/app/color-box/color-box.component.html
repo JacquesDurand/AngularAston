@@ -5,4 +5,4 @@
 <br>
 <div (click)="copyMessage(colorString)" class="result" style.background-color="{{colorString}}"></div>
 <br>
-<div class="copy-result"></div>
+<div class="indication" [style.borderColor]="colorString">Click on the color to copy it to the Clipboard as rgb</div>
