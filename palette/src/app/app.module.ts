@@ -8,13 +8,16 @@ import { AppComponent } from './app.component';
 import { SlideComponent } from './slide/slide.component';
 import { ColorBoxComponent } from './color-box/color-box.component';
 import { ButtonDirective } from './directives/button.directive';
+import { TwoWayDataBindingComponent } from './two-way-data-binding/two-way-data-binding.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SlideComponent,
     ColorBoxComponent,
-    ButtonDirective
+    ButtonDirective,
+    TwoWayDataBindingComponent,
+    
   ],
   imports: [
     BrowserModule,

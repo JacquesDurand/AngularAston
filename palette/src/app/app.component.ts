@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef , AfterViewInit, ViewChildren,QueryList} from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 import { ColorBoxComponent } from './color-box/color-box.component';
 
 @Component({
@@ -8,10 +8,10 @@ import { ColorBoxComponent } from './color-box/color-box.component';
 })
 export class AppComponent implements AfterViewInit {
   title = 'palette';
-  colorString : string ='';
+  colorString: string = '';
 
-  @ViewChild('focusInput') focusInputRef : ElementRef ;
-  @ViewChildren(ColorBoxComponent) colorBoxRef : QueryList<ColorBoxComponent>;
+  @ViewChild('focusInput') focusInputRef: ElementRef;
+  @ViewChildren(ColorBoxComponent) colorBoxRef: QueryList<ColorBoxComponent>;
 
   ngAfterViewInit() {
     console.log(this.focusInputRef);
@@ -19,7 +19,7 @@ export class AppComponent implements AfterViewInit {
     console.log(this.colorBoxRef);
   }
 
-  retrieveColor(event:string): void {    
-    this.colorString = event ;    
+  retrieveColor(event: string): void {
+    this.colorString = event;
   }
 }

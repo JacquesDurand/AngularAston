@@ -1,4 +1,4 @@
-<h1  [style.color]="colorString">My super color app</h1>
+<h1 [style.color]="colorString">My super color app</h1>
 
 <div class="container">
   <app-color-box (colorEmit)="retrieveColor($event)"></app-color-box>
@@ -7,5 +7,9 @@
 </div>
 <br>
 
-<input #focusInput type="text">
-<button appButton >Click me</button>
+<!-- <input #focusInput type="text">
+<button appButton>Click me</button>
+<br>
+<a appButton>A link</a> -->
+
+<app-two-way-data-binding></app-two-way-data-binding>

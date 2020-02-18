@@ -16,6 +16,9 @@
     border-radius: 4px;
     padding: 20px;    
 }
+.result:hover {
+    cursor: pointer;
+}
 .slide {
     margin: 10px;
     border: 1px solid #cccccc;
@@ -26,6 +29,7 @@
 }
 .slide-0 {
     border-color: red;
+    color: red;
 }
 .slide-1 {
     border-color: green;

@@ -8,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class SlideComponent implements OnInit {
 
   color: number = 0;
+  @Input() label: string = '';
   @Input() min: number = 0;
   @Input() max: number = 0;
   @Output() valueEvent = new EventEmitter<number>();
