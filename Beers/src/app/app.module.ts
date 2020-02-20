@@ -14,6 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,8 @@ import { AboutComponent } from './components/about/about.component';
     HomeComponent,
     SidenavComponent,
     ContactComponent,
-    AboutComponent
+    AboutComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +37,10 @@ import { AboutComponent } from './components/about/about.component';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
