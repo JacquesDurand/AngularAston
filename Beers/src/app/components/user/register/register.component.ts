@@ -3,6 +3,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { UserModel } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
+import { Router } from '@angular/router';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -17,7 +18,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  user: UserModel = new UserModel();
   form: FormGroup;
 
   emailFormControl = new FormControl('', [
@@ -27,7 +27,8 @@ export class RegisterComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   constructor(private formBuilder: FormBuilder,
-    private userService: UsersService) { }
+    private userService: UsersService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -41,14 +42,19 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.value);
     const u = this.form.value as UserModel
-    console.log(u);
-
     this.userService.registerUser(u).subscribe((data: UserModel) => {
       console.log(data);
+      this.router.navigate(['/']);
+    },
+      (err: Error) => {
+        console.log(err);
 
-    })
+      },
+      () => {
+        console.log('Request completed');
+
+      })
   }
 
 }
