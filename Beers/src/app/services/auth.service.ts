@@ -17,16 +17,19 @@ export class AuthService {
   private userSubject: BehaviorSubject<UserModel>;
   private user$: Observable<UserModel>;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     const user = JSON.parse(localStorage.getItem('user_storage'));
-    this.userSubject = new BehaviorSubject<UserModel>(user);
-    this.user$ = this.userSubject.asObservable();
+
+    if (user) {
+      this.userSubject = new BehaviorSubject<UserModel>(user);
+      this.user$ = this.userSubject.asObservable();
+    }
   }
 
   //this.authService.user
   // value === UserModel || null
 
-  get user() : UserModel {
+  get user(): UserModel {
     return this.userSubject.value;
   }
 
@@ -51,6 +54,10 @@ export class AuthService {
     localStorage.removeItem('user_storage');
     localStorage.removeItem('token_storage');
     this.userSubject.next(null);
+  }
+
+  getToken(): string {
+    return localStorage.getItem('token_storage');
   }
 
 }
