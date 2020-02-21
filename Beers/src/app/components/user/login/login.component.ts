@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { UserModel } from 'src/app/models/user.model';
-import { UsersService } from 'src/app/services/users.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   constructor(private formBuilder: FormBuilder,
-    private userService: UsersService,
+    private authService: AuthService,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -33,11 +34,11 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const u = this.form.value as UserModel;
-    this.userService.logUser(u).subscribe(
+    const u = this.form.value;
+    this.authService.logUser(u.email, u.password).subscribe(
       (data: UserModel) => {
         console.log(data);
-
+        this.router.navigate(['/']);
       }
     )
   }

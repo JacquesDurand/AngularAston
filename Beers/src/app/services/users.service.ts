@@ -15,7 +15,5 @@ export class UsersService {
     return this.http.post<UserModel>('http://localhost:3000/users/signin', user);
   }
 
-  logUser(user: UserModel): Observable<UserModel> {
-    return this.http.post<UserModel>('http://localhost:3000/users/login', user)
-  }
+ 
 }
