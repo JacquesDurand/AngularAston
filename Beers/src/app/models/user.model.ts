@@ -8,7 +8,5 @@ export class UserModel {
     createdAt: Date = new Date();
     updatedAt: Date = new Date();
 
-    constructor(parameters) {
-
-    }
+    
 }
