@@ -1,5 +1,5 @@
 <button type="button" (click)="getUsersList()">Get all Users</button>
 
 <ul>
-    <li *ngFor =" let user of users"> {{user | json}}</li>
+    <li *ngFor =" let user of users">{{user.firstname}} {{user.name}}</li>
 </ul>

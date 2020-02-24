@@ -25,7 +25,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { LoginComponent } from './components/user/login/login.component';
 import { RegisterComponent } from './components/user/register/register.component';
-import { AuthInterceptor} from '../../interceptors/http-interceptor';
+import { AuthInterceptor } from '../../interceptors/http-interceptor';
+import { BaseUrlInterceptor } from 'interceptors/base-url-interceptor';
+import { environment } from '../environments/environment';
+import {API_URL} from 'interceptors/base-url-interceptor';
 
 @NgModule({
   declarations: [
@@ -61,6 +64,16 @@ import { AuthInterceptor} from '../../interceptors/http-interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: API_URL,
+      useValue: environment.apiURL
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BaseUrlInterceptor,
+      deps: [API_URL],
       multi: true
     }
   ],

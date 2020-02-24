@@ -14,14 +14,15 @@ interface UserAuth {
   providedIn: 'root'
 })
 export class AuthService {
-  private userSubject: BehaviorSubject<UserModel>;
+  public userSubject: BehaviorSubject<UserModel>;
   private user$: Observable<UserModel>;
 
   constructor(private http: HttpClient) {
     const user = JSON.parse(localStorage.getItem('user_storage'));
+    this.userSubject = new BehaviorSubject<UserModel>(null);
 
     if (user) {
-      this.userSubject = new BehaviorSubject<UserModel>(user);
+      this.userSubject.next(user);
       this.user$ = this.userSubject.asObservable();
     }
   }
@@ -57,7 +58,7 @@ export class AuthService {
   }
 
   getToken(): string {
-    return localStorage.getItem('token_storage');
+    return JSON.parse(localStorage.getItem('token_storage'));
   }
 
 }

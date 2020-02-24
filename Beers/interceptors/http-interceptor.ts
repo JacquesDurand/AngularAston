@@ -10,12 +10,12 @@ export class AuthInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-        const token = this.authService.getToken();
-        const realToken = token.substring(1,token.length -1);
-        console.log(realToken);
+        const realToken = this.authService.getToken();
+        // const realToken = token.substring(1,token.length -1);
+        // console.log(realToken);
 
 
-        if (token) {
+        if (realToken) {
             const cloned = req.clone({
                 setHeaders: {
                     Authorization: `Bearer ${realToken}`
