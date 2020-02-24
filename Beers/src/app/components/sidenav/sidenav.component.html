@@ -7,7 +7,7 @@
       <a mat-list-item href="#" [routerLink]="['/contact']">Contact</a>
       <a *ngIf="!logged" mat-list-item href="#" [routerLink]="['/users/register']">Register</a>
       <a *ngIf="!logged" mat-list-item href="#" [routerLink]="['/users/login']">Login</a>
-      <a *ngIf="logged" mat-list-item href="#" [routerLink]="['/']" (click)="logOut()">Logout</a>
+      <a *ngIf="logged" mat-list-item href="#" [routerLink]="['/users/login']" (click)="logOut()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

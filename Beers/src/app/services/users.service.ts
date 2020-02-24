@@ -12,11 +12,11 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   registerUser(user: UserModel): Observable<UserModel> {
-    return this.http.post<UserModel>('http://localhost:3000/users/signin', user);
+    return this.http.post<UserModel>('/users/signin', user);
   }
 
   getAllUsers(): Observable<UserModel[]> {
-    return this.http.get<any>('http://localhost:3000/users');
+    return this.http.get<any>('/users');
 
   }
 }

@@ -36,7 +36,7 @@ export class AuthService {
 
   logUser(email: string, password: string): Observable<UserModel> {
     const data = { email: email, password: password }
-    return this.http.post<any>('http://localhost:3000/users/login', data)
+    return this.http.post<any>('/users/login', data)
       .pipe(
         tap((data: UserAuth) => console.log(data))
       )
