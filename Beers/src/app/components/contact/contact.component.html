@@ -1,1 +1,5 @@
-<p>contact works!</p>
+<button type="button" (click)="getUsersList()">Get all Users</button>
+
+<ul>
+    <li *ngFor =" let user of users"> {{user | json}}</li>
+</ul>
