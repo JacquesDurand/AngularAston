@@ -57,7 +57,7 @@ export class AuthService {
     this.userSubject.next(null);
   }
 
-  getToken(): string {
+  getToken(): string {    
     return JSON.parse(localStorage.getItem('token_storage'));
   }
 
