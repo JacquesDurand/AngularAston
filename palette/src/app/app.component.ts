@@ -13,9 +13,9 @@ export class AppComponent implements AfterViewInit {
   @ViewChildren(ColorBoxComponent) colorBoxRef: QueryList<ColorBoxComponent>;
 
   ngAfterViewInit() {
-    console.log(this.focusInputRef);
-    this.focusInputRef.nativeElement.focus();
-    console.log(this.colorBoxRef);
+    // console.log(this.focusInputRef);
+    // this.focusInputRef.nativeElement.focus();
+    // console.log(this.colorBoxRef);
   }
 
 
